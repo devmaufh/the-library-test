@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Book;
+use App\Models\Category;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -12,11 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Mauricio Flores Hernandez',
-            'email' => 'mau1361317@gmail.com',
-            'password' => bcrypt('hola'),
-        ]);
-        factory(User::class, 20)->create();
+        factory(Category::class, 5)->create();
+        factory(Book::class, 50)->create();
     }
 }

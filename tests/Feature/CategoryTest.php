@@ -20,17 +20,21 @@ class CategoryTest  extends TestCase
         $category = factory(Category::class)->create();
         $response = $this->json('GET',$this->endpoint);
         $response->assertJsonFragment(['data'=>[$category->toArray()]]);
+        $response->assertOk();
+
     }
     public function testUpdateCategory(){
         $category = factory(Category::class)->create()->toArray();
         $category['name'] = 'updated';
         $response = $this->json('PUT', $this->endpoint . '/' .$category['id'], $category);
         $response->assertJsonFragment(['data' => $category]);
+        $response->assertOk();
     }
     public function testDeleteCategory(){
         $category = factory(Category::class)->create();
         $response = $this->json('DELETE', $this->endpoint . '/' .$category->id);
-        $response->assertJsonFragment(['data' => $category->toArray()]);
+        $response->assertJsonStructure(['data' => []]);
+        $response->assertOk();
     }
 
 

@@ -2,17 +2,17 @@
 <nav>
     <v-app-bar app color="indigo" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title v-show="!drawer" >Permisos de construcción</v-toolbar-title>
+        <v-toolbar-title v-show="!drawer" >Books sysmte</v-toolbar-title>
     </v-app-bar>
 
     <v-navigation-drawer app absolute v-model="drawer">
         <v-list-item>
             <v-list-item-content>
                 <v-list-item-title class="title">
-                    Permisos de construcción
+                    Books
                 </v-list-item-title>
                 <v-list-item-subtitle>
-                    GAMLABS
+                    System
                 </v-list-item-subtitle>
             </v-list-item-content>
         </v-list-item>
@@ -40,8 +40,11 @@ export default {
                     title: 'Dashboard',
                     icon: 'mdi-view-dashboard',
                     route: '/'
-                },
-
+                },{
+                    title: 'Category',
+                    icon: 'mdi-view-dashboard',
+                    route : 'category'
+                }
 
             ],
         }
