@@ -34,7 +34,7 @@ class BookRepository
                 }
             });
         }
-        return $books->paginate($perpage);
+        return $books->select('books.*','c.name as category')->paginate($perpage);
     }
 
     /**

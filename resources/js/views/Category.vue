@@ -88,6 +88,8 @@ import {
     ValidationProvider
 } from 'vee-validate'
 import CategoryService from '../services/CategoryService'
+import axios from 'axios'
+const apiCategoryService = new CategoryService(axios)
 
 setInteractionMode('eager')
 extend('required', {
@@ -161,7 +163,7 @@ export default {
             this.loadingModal.text = 'Deleting category'
             this.loadingModal.loading = true
             this.loading = false
-            await new CategoryService(axios).delete(category.id)
+            await apiCategoryService.delete(category.id)
             this.loadingModal.loading = false
             this.loading = true
             this.fetchCategories(this.options)
@@ -187,15 +189,15 @@ export default {
             if (!isValid) return
             this.loading = true
             if (this.editedIndex === -1) { //Save category
-                await new CategoryService(axios).post(this.editedItem)
+                await apiCategoryService.post(this.editedItem)
             } else { //Edit category
-                await new CategoryService(axios).edit(this.editedItem, this.editedItem.id)
+                await apiCategoryService.edit(this.editedItem, this.editedItem.id)
             }
             this.fetchCategories(this.options)
             this.close()
         },
         async fetchCategories(options) {
-            let response = await new CategoryService(axios).getAll(options)
+            let response = await apiCategoryService.getAll(options)
             this.loading = false
             this.category.list = response.data.data
             this.category.page = response.data.current_page

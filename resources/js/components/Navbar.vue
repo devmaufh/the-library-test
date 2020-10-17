@@ -2,7 +2,7 @@
 <nav>
     <v-app-bar app color="indigo" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title v-show="!drawer" >Books sysmte</v-toolbar-title>
+        <v-toolbar-title v-show="!drawer" >Books System</v-toolbar-title>
     </v-app-bar>
 
     <v-navigation-drawer app absolute v-model="drawer">
@@ -37,15 +37,14 @@ export default {
         return {
             drawer: true,
             items: [{
-                    title: 'Dashboard',
-                    icon: 'mdi-view-dashboard',
-                    route: '/'
-                },{
                     title: 'Category',
                     icon: 'mdi-view-dashboard',
                     route : 'category'
+                },{
+                    title : 'Book',
+                    icon : 'mdi-view-dashboard',
+                    route : 'book'
                 }
-
             ],
         }
     }

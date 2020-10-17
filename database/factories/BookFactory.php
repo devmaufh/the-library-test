@@ -8,11 +8,11 @@ use Faker\Generator as Faker;
 
 $factory->define(Book::class, function (Faker $faker) {
     return [
-        'name' => $faker->colorName,
+        'name' => $faker->word,
         'author' =>  $faker->name,
         'published_date' =>  $faker->date('Y-m-d'),
-        'user' => $faker->name,
-        'is_borrowed' => $faker->boolean,
+        'is_borrowed' => $isBorrowed =  $faker->boolean,
+        'user' => $isBorrowed ? $faker->name : NULL,
         'category_id' => Category::all()->random()->id,
         'deleted_at' => NULL
     ];

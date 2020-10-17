@@ -27,7 +27,7 @@ class BookRequest extends FormRequest
             'name' => 'required|string',
             'author' => 'required|string',
             'published_date' => 'required|date',
-            'user' => 'string',
+            'user' => 'max:150',
             'is_borrowed' => 'boolean',
             'category_id' => 'required|integer|exists:categories,id'
         ];
