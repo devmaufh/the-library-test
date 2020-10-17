@@ -31,3 +31,11 @@ vendor/bin/phpunit
  ```
  php artisan serve
  ```
+
+## Screenshots
+### Categories
+![Categories](https://github.com/devmaufh/the-library-test/blob/main/screenshots/1.PNG)
+
+### Books
+
+![Books](https://github.com/devmaufh/the-library-test/blob/main/screenshots/2.PNG)
